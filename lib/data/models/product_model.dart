@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 class Product {
   List<Products>? products;
   int? total;
@@ -9,8 +11,12 @@ class Product {
   Product.fromJson(Map<String, dynamic> json) {
     if (json['products'] != null) {
       products = <Products>[];
-      json['products'].forEach((v) {
-        products!.add(Products.fromJson(v));
+      json['products'].forEach((prod) {
+        try {
+          products!.add(Products.fromJson(prod));
+        } catch (e) {
+          debugPrint("Error parsing product with id: ${prod['id']}, Error: $e");
+        }
       });
     }
     total = json['total'];
@@ -19,7 +25,7 @@ class Product {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (products != null) {
       data['products'] = products!.map((v) => v.toJson()).toList();
     }
@@ -84,7 +90,7 @@ class Products {
     description = json['description'];
     category = json['category'];
     price = json['price'];
-    discountPercentage = json['discountPercentage'];
+    discountPercentage = (json['discountPercentage'] as num?)?.toDouble();
     rating = json['rating'];
     stock = json['stock'];
     tags = List<String>.from(json['tags']);
@@ -111,7 +117,7 @@ class Products {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['title'] = title;
     data['description'] = description;
@@ -152,13 +158,13 @@ class Dimensions {
   Dimensions({this.width, this.height, this.depth});
 
   Dimensions.fromJson(Map<String, dynamic> json) {
-    width = json['width'];
-    height = json['height'];
+    width = (json['width'] as num?)?.toDouble();
+    height = (json['height'] as num?)?.toDouble();
     depth = json['depth'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['width'] = width;
     data['height'] = height;
     data['depth'] = depth;
@@ -189,7 +195,7 @@ class Reviews {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['rating'] = rating;
     data['comment'] = comment;
     data['date'] = date;
@@ -215,7 +221,7 @@ class Meta {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['createdAt'] = createdAt;
     data['updatedAt'] = updatedAt;
     data['barcode'] = barcode;
