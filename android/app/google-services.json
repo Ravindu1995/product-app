@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "35441432988",
+    "project_id": "product-app-abb91",
+    "storage_bucket": "product-app-abb91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35441432988:android:86094d363b5ebe84f49059",
+        "android_client_info": {
+          "package_name": "com.proDigit.product_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35441432988-ntcsmmoa9f6rq9a7s7f4arofdpoidbrq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.proDigit.product_app",
+            "certificate_hash": "82ffe509da969dd72b992de7d867ba5b53ffa32f"
+          }
+        },
+        {
+          "client_id": "35441432988-ga5gjk170uu2721gge3nldrks0mr6k51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqGDZGDYBevhIh2EOkH3c65w1QCTllDXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35441432988-ga5gjk170uu2721gge3nldrks0mr6k51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
