@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:product_app/app/bindings/initial_bindings.dart';
 import 'package:product_app/app/routes/routes_name.dart';
+import 'package:product_app/views/home/home_view.dart';
 import 'package:product_app/views/splash_view.dart';
 
 class AppPages {
@@ -12,5 +13,25 @@ class AppPages {
       page: () => const SplashView(),
       binding: InitialBindings(),
     ),
+    GetPage(
+      name: Routes.homeView,
+      page: () => HomeView(),
+      binding: InitialBindings(),
+    ),
+    // GetPage(
+    //   name: Routes.DETAIL,
+    //   page: () => DetailView(),
+    //   binding: InitialBindings(),
+    // ),
+    // GetPage(
+    //   name: Routes.LOGIN,
+    //   page: () => LoginView(),
+    //   binding: InitialBindings(),
+    // ),
+    // GetPage(
+    //   name: Routes.SIGN_UP,
+    //   page: () => SignUpView(),
+    //   binding: InitialBindings(),
+    // ),
   ];
 }
