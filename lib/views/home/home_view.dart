@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:product_app/views/details/details_view.dart';
+import 'package:product_app/views/profile/profile_view.dart';
 import '../../controllers/product_controller.dart';
 
 class HomeView extends StatelessWidget {
@@ -12,9 +14,16 @@ class HomeView extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Product List',
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
         ),
         centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () {
+                Get.to(const ProfileView());
+              },
+              icon: const Icon(Icons.person_4_outlined))
+        ],
       ),
       body: Obx(() {
         if (productController.isLoading.value) {
@@ -49,6 +58,9 @@ class HomeView extends StatelessWidget {
                 subtitle: Text(product.brand ?? 'No Brand'),
                 trailing:
                     Text('\$${product.price?.toStringAsFixed(2) ?? '0.00'}'),
+                onTap: () {
+                  Get.to(() => DetailsView(product: product));
+                },
               ),
             );
           },
