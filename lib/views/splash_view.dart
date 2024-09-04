@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:product_app/views/home/home_view.dart';
+import 'package:product_app/views/login/login_view.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -10,7 +10,7 @@ class SplashView extends StatelessWidget {
     return Scaffold(
       floatingActionButton: GestureDetector(
         onTap: () {
-          Get.to(HomeView());
+          Get.to(LoginView());
         },
         child: Container(
           padding: EdgeInsets.all(12),
